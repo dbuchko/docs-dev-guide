@@ -1,0 +1,181 @@
+---
+title: CF CLI Chinese (simplified)
+---
+
+名称：
+   cf - 用于与 Cloud Foundry 进行交互的命令行工具
+
+使用情况：
+   [environment variables] cf [global options] command [arguments...] [command options]
+
+版本：
+   6.15.0+fa1bfe2-2016-01-13
+
+## <a id='入门'></a>入门
+Name   |   Description
+------------|------------
+   help                                   显示帮助  |  login                                  使用户登录
+   logout                                 使用户注销  |  passwd                                 更改用户密码
+   target                                 设置或查看目标组织或空间  |  api                                    设置或查看目标 API URL
+   auth                                   以非交互方式认证用户
+
+## <a id='应用程序'></a>应用程序
+Name   |   Description
+------------|------------
+   apps                                   列出目标空间中的所有应用程序  |  app                                    显示应用程序的运行状况和状态
+   push                                   推送新应用程序，或将更改同步到现有应用程序  |  scale                                  更改或查看应用程序的实例计数、磁盘空间和内存限制
+   delete                                 删除应用程序  |  rename                                 重命名应用程序
+   start                                  启动应用程序  |  stop                                   停止应用程序
+   restart                                重新启动应用程序  |  restage                                重新编译打包应用程序
+   restart-app-instance                   在给定索引处终止运行中应用程序实例，并使用相同索引对应用程序的新实例进行实例化  |  events                                 显示最近的应用程序事件
+   files                                  打印目录中的文件列表或特定文件的内容  |  logs                                   跟踪或显示应用程序最近的日志
+   env                                    显示应用程序的所有环境变量  |  set-env                                为应用程序设置环境变量
+   unset-env                              除去环境变量  |  stacks                                 列出所有堆栈（堆栈是一种可以运行应用程序的预构建文件系统，包括操作系统）
+   stack                                  显示堆栈的信息（堆栈是一种可以运行应用程序的预构建文件系统，包括操作系统）  |  copy-source                            将应用程序源代码从一个应用程序复制到另一个应用程序。除非已覆盖，否则 copy-source 命令将重新启动应用程序。
+   create-app-manifest                    为已成功推送的应用程序创建应用程序清单。  |  get-health-check                       获取应用程序的 health\_check\_type 值
+   set-health-check                       将 health\_check\_type 标志设置为“port”或“none”  |  enable-ssh                             启用应用程序的 SSH
+   disable-ssh                            禁用应用程序的 SSH  |  ssh-enabled                            报告是否在应用程序容器实例上启用了 SSH
+   ssh                                    通过 SSH 连接到应用程序容器实例
+
+## <a id='服务'></a>服务
+Name   |   Description
+------------|------------
+   marketplace                            列出市场中的可用产品  |  services                               列出目标空间中的所有服务实例
+   service                                显示服务实例信息  |  create-service                         创建服务实例
+   update-service                         更新服务实例  |  delete-service                         删除服务实例
+   rename-service                         重命名服务实例  |  create-service-key                     为服务实例创建密钥
+   service-keys                           列出服务实例的密钥  |  service-key                            显示服务密钥信息
+   delete-service-key                     删除服务密钥  |  bind-service                           将服务实例绑定到应用程序
+   unbind-service                         取消服务实例与应用程序的绑定  |  create-user-provided-service           使用户提供的服务实例可供 cf 应用程序使用
+   update-user-provided-service           更新用户提供的服务实例名称值对
+
+## <a id='组织'></a>组织
+Name   |   Description
+------------|------------
+   orgs                                   列出所有组织  |  org                                    显示组织信息
+   create-org                             创建组织  |  delete-org                             删除组织
+   rename-org                             重命名组织
+
+## <a id='空间'></a>空间
+Name   |   Description
+------------|------------
+   spaces                                 列出组织中的所有空间  |  space                                  显示空间信息
+   create-space                           创建空间  |  delete-space                           删除空间
+   rename-space                           重命名空间  |  allow-space-ssh                        允许对空间进行 SSH 访问
+   disallow-space-ssh                     不允许对空间进行 SSH 访问  |  space-ssh-allowed                      报告是否允许在空间中使用 SSH
+
+## <a id='域'></a>域
+Name   |   Description
+------------|------------
+   domains                                列出目标组织中的域  |  create-domain                          在组织中创建域以供日后使用
+   delete-domain                          删除域  |  create-shared-domain                   创建可以由所有组织使用的域（仅限管理员）
+   delete-shared-domain                   删除共享域
+
+## <a id='路径'></a>路径
+Name   |   Description
+------------|------------
+   routes                                 列出当前空间或当前组织中的所有路径  |  create-route                           在空间中创建 URL 路径以供日后使用
+   check-route                            执行简单检查，以确定路径当前是否存在。  |  map-route                              向应用程序添加 URL 路径
+   unmap-route                            从应用程序中除去 URL 路径  |  delete-route                           删除路径
+   delete-orphaned-routes                 删除所有孤立的路径（例如：未映射到应用程序的路径）
+
+## <a id='路由器组'></a>路由器组
+   router-groups                          列出路由器组
+
+## <a id='buildpack'></a>BUILDPACK
+Name   |   Description
+------------|------------
+   buildpacks                             列出所有 buildpack  |  create-buildpack                       创建 buildpack
+   update-buildpack                       更新 buildpack  |  rename-buildpack                       重命名 buildpack
+   delete-buildpack                       删除 buildpack
+
+## <a id='用户管理员'></a>用户管理员
+Name   |   Description
+------------|------------
+   create-user                            新建用户  |  delete-user                            删除用户
+   org-users                              显示组织用户（按角色）  |  set-org-role                           为用户分配组织角色
+   unset-org-role                         除去用户的组织角色  |  space-users                            显示空间用户（按角色）
+   set-space-role                         为用户分配空间角色  |  unset-space-role                       除去用户的空间角色
+
+## <a id='组织管理员'></a>组织管理员
+Name   |   Description
+------------|------------
+   quotas                                 列出可用用量配额  |  quota                                  显示配额信息
+   set-quota                              为组织分配配额  |  create-quota                           定义新的资源配额
+   delete-quota                           删除配额  |  update-quota                           更新现有资源配额
+   share-private-domain                   与组织共享专用域  |  unshare-private-domain                 取消与组织共享专用域
+
+## <a id='空间管理员'></a>空间管理员
+Name   |   Description
+------------|------------
+   space-quotas                           列出可用空间资源配额  |  space-quota                            显示空间配额信息
+   create-space-quota                     定义新的空间资源配额  |  update-space-quota                     更新现有空间配额
+   delete-space-quota                     删除空间配额定义，并取消所有空间的空间配额分配  |  set-space-quota                        为空间分配空间配额定义
+   unset-space-quota                      取消为空间分配的配额
+
+## <a id='服务管理员'></a>服务管理员
+Name   |   Description
+------------|------------
+   service-auth-tokens                    列出服务认证令牌  |  create-service-auth-token              创建服务认证令牌
+   update-service-auth-token              更新服务认证令牌  |  delete-service-auth-token              删除服务认证令牌
+   service-brokers                        列出服务代理程序  |  create-service-broker                  创建服务代理程序
+   update-service-broker                  更新服务代理程序  |  delete-service-broker                  删除服务代理程序
+   rename-service-broker                  重命名服务代理程序  |  migrate-service-instances              将服务实例从一个服务套餐迁移到另一个服务套餐
+   purge-service-offering                 以递归方式从 Cloud Foundry 数据库中除去某个服务和子对象，而不对服务代理程序发起请求  |  purge-service-instance                 以递归方式从 Cloud Foundry 数据库中除去某个服务实例和子对象，而不对服务代理程序发起请求
+   service-access                         列出服务访问权设置  |  enable-service-access                  启用对一个或全部组织的一个或多个服务套餐的访问
+   disable-service-access                 禁用对一个或全部组织的一个或多个服务套餐的访问
+
+## <a id='安全组'></a>安全组
+Name   |   Description
+------------|------------
+   security-group                         显示单个安全组  |  security-groups                        列出所有安全组
+   create-security-group                  创建安全组  |  update-security-group                  更新安全组
+   delete-security-group                  删除安全组  |  bind-security-group                    将安全组绑定到空间
+   unbind-security-group                  取消安全组与空间的绑定  |  bind-staging-security-group            将安全组绑定到要用于编译打包应用程序的安全组的列表
+   staging-security-groups                列出应用程序编译打包集内的安全组  |  unbind-staging-security-group          取消安全组与用于编译打包应用程序的安全组集的绑定
+   bind-running-security-group            将安全组绑定到要用于运行应用程序的安全组的列表  |  running-security-groups                列出用于运行应用程序的安全组集内的安全组
+   unbind-running-security-group          取消安全组与用于运行应用程序的安全组集的绑定
+
+## <a id='环境变量组'></a>环境变量组
+Name   |   Description
+------------|------------
+   running-environment-variable-group     检索运行环境变量组的内容  |  staging-environment-variable-group     检索编译打包环境变量组的内容
+   set-staging-environment-variable-group 将参数作为 JSON 传递，以创建编译打包环境变量组  |  set-running-environment-variable-group 将参数作为 JSON 传递，以创建运行环境变量组
+
+## <a id='功能标志'></a>功能标志
+Name   |   Description
+------------|------------
+   feature-flags                          通过每个可标记功能的状态检索功能标志的列表  |  feature-flag                           检索具有以下状态的各个功能标志
+   enable-feature-flag                    支持使用某个功能，以便用户有权访问并可以使用该功能。  |  disable-feature-flag                   禁止使用某个功能，使用户无权访问和无法使用该功能。
+
+## <a id='高级'></a>高级
+Name   |   Description
+------------|------------
+   curl                                   执行原始请求，缺省情况下 content-type 设置为 application/json  |  config                                 将缺省值写入配置
+   oauth-token                            检索并显示当前会话的 OAuth 令牌  |  ssh-code                               为 SSH 客户机获取一次性密码
+
+## <a id='添加/除去插件存储库'></a>添加/除去插件存储库
+Name   |   Description
+------------|------------
+   add-plugin-repo                        添加新的插件存储库  |  remove-plugin-repo                     除去插件存储库
+   list-plugin-repos                      列出所有添加的插件存储库  |  repo-plugins                           列出所有添加的存储库中的所有可用插件
+
+## <a id='添加/除去插件'></a>添加/除去插件
+Name   |   Description
+------------|------------
+   plugins                                列出所有可用的插件命令  |  install-plugin                         安装命令参数中定义的插件
+   uninstall-plugin                       卸载命令参数中定义的插件
+
+## <a id='已安装插件命令'></a>已安装插件命令
+
+环境变量：
+   CF\_COLOR=false                     不对输出设置颜色  |  CF\_HOME=path/to/dir/               覆盖缺省配置目录的路径
+   CF\_PLUGIN\_HOME=path/to/dir/        覆盖缺省插件配置目录的路径  |  CF\_STAGING\_TIMEOUT=15              buildpack 编译打包的最长等待时间（分钟）
+   CF\_STARTUP\_TIMEOUT=5               应用程序实例启动的最长等待时间（分钟）  |  CF\_TRACE=true                      将 API 请求诊断打印到 stdout
+   CF\_TRACE=path/to/trace.log         将 API 请求诊断附加到日志文件  |  HTTP\_PROXY=proxy.example.com:8080  对 API 请求启用 HTTP 代理
+
+全局选项：
+   --version, -v                      打印版本
+   --build, -b                        打印 CLI 构建时所依据的 Go 版本
+   --help, -h                         显示帮助
+

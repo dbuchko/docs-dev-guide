@@ -1,0 +1,258 @@
+---
+title: CF CLI French
+---
+
+## <a id='nom-'></a>NOM 
+   cf - Outil de ligne de commande permettant d'interagir avec Cloud Foundry
+
+## <a id='syntaxe'></a>SYNTAXE
+   [variables d'environnement] cf [options globales] commande [arguments...] [options de commande]
+
+## <a id='version-'></a>VERSION 
+   6.15.0+fa1bfe2-2016-01-13
+
+## <a id='initiation-'></a>INITIATION 
+Name   |   Description
+------------|------------
+   help  |  Afficher l'aide
+   login  |  Connecter l'utilisateur
+   logout  |  Déconnecter l'utilisateur
+   passwd  |  Changer le mot de passe de l'utilisateur
+   target  |  Définir ou afficher l'organisation ou l'espace ciblé
+   api  |  Définir ou afficher l'adresse URL de l'API cible
+   auth  |  Authentifier un utilisateur de manière non interactive
+
+## <a id='applications'></a>APPLICATIONS
+Name   |   Description
+------------|------------
+   apps  |  Répertorier toutes les applications dans l'espace cible
+   app  |  Afficher la santé et le statut de l'application
+   push  |  Envoyer par commande push une nouvelle application ou synchroniser les modifications dans une application existante
+   scale  |  Changer ou afficher le nombre d'instances, la limite d'espace disque et la limite de mémoire pour une application
+   delete  |  Supprimer une application
+   rename  |  Renommer une application
+   start  |  Démarrer une application
+   stop  |  Arrêter une application
+   restart  |  Redémarrer une application
+   restage  |  Reconstituer une application
+   restart-app-instance  |  Mettez fin à l'instance d'application en cours d'exécution à l'index donné et instanciez une nouvelle instance de l'application avec le même index
+   events  |  Afficher les événements d'application récents
+   files  |  Afficher la liste des fichiers d'un répertoire ou le contenu d'un fichier spécifique
+   logs  |  Afficher les dernières lignes ou l'intégralité des journaux récents pour une application
+   env  |  Afficher toutes les variables d'environnement pour une application
+   set-env  |  Définir une variable d'environnement pour une application
+   unset-env  |  Retirer une variable d'environnement
+   stacks  |  Répertorier toutes les piles (une pile est un système de fichiers prégénérés incluant un système d'exploitation, qui peut exécuter des applications)
+   stack  |  Afficher les informations pour une pile (une pile est un système de fichiers prégénérés incluant un système d'exploitation, qui peut exécuter des applications)
+   copy-source  |  Effectuez une copie du code source de l'application depuis une application dans une autre. Sauf si elle est écrasée, la commande copy-source redémarre l'application.
+   create-app-manifest  |  Créez un manifeste d'application pour une application dont l'envoi par commande push a abouti.
+   get-health-check  |  obtenir la valeur du type de diagnostic d'intégrité pour une application
+   set-health-check  |  associer le type de diagnostic d'intégrité à 'port' ou 'none'
+   enable-ssh  |  activer ssh pour l'application
+   disable-ssh  |  désactiver ssh pour l'application
+   ssh-enabled  |  Indique si SSH est activé dans une instance de conteneur d'applications
+   ssh  |  Utilisation de SSH pour une instance de conteneur d'applications
+
+## <a id='services'></a>SERVICES
+Name   |   Description
+------------|------------
+   marketplace  |  Répertorier les offres disponibles sur la place de marché
+   services  |  Répertorier toutes les instances de service dans l'espace cible
+   service  |  Afficher les informations sur l'instance de service
+   create-service  |  Créer une instance de service
+   update-service  |  Mettre à jour une instance de service
+   delete-service  |  Supprimer une instance de service
+   rename-service  |  Renommer une instance de service
+   create-service-key  |  Créer une clé pour une instance de service
+   service-keys  |  Répertorier les clés pour une instance de service
+   service-key  |  Afficher les informations sur la clé de service
+   delete-service-key  |  Supprimer une clé de service
+   bind-service  |  Lier une instance de service à une application
+   unbind-service  |  Annuler la liaison d'une instance de service depuis une application
+   create-user-provided-service  |  Mettez une instance de service fournie par un utilisateur à la disposition des applications cf
+   update-user-provided-service  |  Mettre à jour des paires de noms et de valeurs d'instance de service fournies par l'utilisateur
+
+## <a id='organisations'></a>ORGANISATIONS
+Name   |   Description
+------------|------------
+   orgs  |  Répertorier toutes les organisations
+   org  |  Afficher les informations sur l'organisation
+   create-org  |  Créer une organisation
+   delete-org  |  Supprimer une organisation
+   rename-org  |  Renommer une organisation
+
+## <a id='espaces'></a>ESPACES
+Name   |   Description
+------------|------------
+   spaces  |  Répertorier tous les espaces d'une organisation
+   space  |  Afficher les informations sur l'espace
+   create-space  |  Créer un espace
+   delete-space  |  Supprimer un espace
+   rename-space  |  Renommer un espace
+   allow-space-ssh  |  Autoriser l'accès SSH pour l'espace
+   disallow-space-ssh  |  Bloquer l'accès SSH pour l'espace
+   space-ssh-allowed  |  Indique si SSH est autorisé dans un espace
+
+## <a id='domaines'></a>DOMAINES
+Name   |   Description
+------------|------------
+   domains  |  Répertorier les domaines dans l'organisation cible
+   create-domain  |  Créer un domaine dans une organisation pour une utilisation ultérieure
+   delete-domain  |  Supprimer un domaine
+   create-shared-domain  |  Créer un domaine pouvant être utilisé par toutes les organisations (administrateur seulement)
+   delete-shared-domain  |  Supprimer un domaine partagé
+
+## <a id='routes'></a>ROUTES
+Name   |   Description
+------------|------------
+   routes  |  Répertorier toutes les routes dans l'espace ou l'organisation en cours
+   create-route  |  Créer une route d'URL dans un espace pour une utilisation ultérieure
+   check-route  |  Effectuez un contrôle simple afin de déterminer si une route existe ou non.
+   map-route  |  Ajouter une route d'URL à une application
+   unmap-route  |  Retirer une route d'URL d'une application
+   delete-route  |  Supprimer une route
+   delete-orphaned-routes  |  Supprimer toutes les routes orphelines (par exemple celles qui ne sont pas mappées à une application)
+
+## <a id='groupes-de-routeurs-'></a>GROUPES DE ROUTEURS 
+Name   |   Description
+------------|------------
+   router-groups  |  Répertorier les groupes de routeurs
+
+## <a id='packs-de-construction-'></a>PACKS DE CONSTRUCTION 
+Name   |   Description
+------------|------------
+   buildpacks  |  Répertorier tous les packs de construction
+   create-buildpack  |  Créer un pack de construction
+   update-buildpack  |  Mettre à jour un pack de construction
+   rename-buildpack  |  Renommer un pack de construction
+   delete-buildpack  |  Supprimer un pack de construction
+
+## <a id='administrateur'></a>ADMINISTRATEUR
+Name   |   Description
+------------|------------
+   create-user  |  Créer un utilisateur
+   delete-user  |  Supprimer un utilisateur
+   org-users  |  Afficher les utilisateurs de l'organisation par rôle
+   set-org-role  |  Affecter un rôle d'organisation à un utilisateur
+   unset-org-role  |  Retirer un rôle d'organisation à un utilisateur
+   space-users  |  Afficher les utilisateurs de l'espace par rôle
+   set-space-role  |  Affecter un rôle d'espace à un utilisateur
+   unset-space-role  |  Retirer un rôle d'espace à un utilisateur
+
+## <a id='administrateur-de-l'organisation-'></a>ADMINISTRATEUR DE L'ORGANISATION 
+Name   |   Description
+------------|------------
+   quotas  |  Répertorier les quotas d'utilisation disponibles
+   quota  |  Afficher les informations de quota
+   set-quota  |  Affecter un quota à une organisation
+   create-quota  |  Définir un nouveau quota de ressources
+   delete-quota  |  Supprimer un quota
+   update-quota  |  Mettre à jour un quota de ressources existant
+   share-private-domain  |  Partager un domaine privé avec une organisation
+   unshare-private-domain  |  Annuler le partage d'un domaine privé avec une organisation
+
+## <a id='administrateur-de-l'espace-'></a>ADMINISTRATEUR DE L'ESPACE 
+Name   |   Description
+------------|------------
+   space-quotas  |  Répertorier les quotas de ressources d'espace disponibles
+   space-quota  |  Afficher les informations de quota d'espace
+   create-space-quota  |  Définir un nouveau quota de ressources d'espace
+   update-space-quota  |  mettre à jour un quota d'espace existant
+   delete-space-quota  |  Supprimer une définition de quota d'espace et annuler l'affectation du quota d'espace dans tous les espaces
+   set-space-quota  |  Affecter une définition de quota d'espace à un espace
+   unset-space-quota  |  Annuler l'affectation d'un quota pour un espace
+
+## <a id='administrateur-du-service-'></a>ADMINISTRATEUR DU SERVICE 
+Name   |   Description
+------------|------------
+   service-auth-tokens  |  Répertorier les jetons d'authentification du service
+   create-service-auth-token  |  Créer un jeton d'authentification de service
+   update-service-auth-token  |  Mettre à jour un jeton d'authentification de service
+   delete-service-auth-token  |  Supprimer un jeton d'authentification de service
+   service-brokers  |  Répertorier les courtiers de services
+   create-service-broker  |  Créer un courtier de services
+   update-service-broker  |  Mettre à jour un courtier de services
+   delete-service-broker  |  Supprimer un courtier de services
+   rename-service-broker  |  Renommer un courtier de services
+   migrate-service-instances  |  Migrer des instances de service d'un plan de service vers un autre
+   purge-service-offering  |  Retirer un service et ses objets enfant de façon récursive de la base de données Cloud Foundry sans demande à un courtier de services
+   purge-service-instance  |  Retirer une instance de service et ses objets enfant de façon récursive de la base de données Cloud Foundry sans demande à un courtier de services
+   service-access  |  Répertorier les paramètres d'accès au service
+   enable-service-access  |  Activer l'accès à un service ou un plan de service pour une organisation ou toutes les organisations
+   disable-service-access  |  Désactiver l'accès à un service ou un plan de service pour une organisation ou toutes les organisations
+
+## <a id='groupe-de-securite-'></a>GROUPE DE SECURITE 
+Name   |   Description
+------------|------------
+   security-group  |  Afficher un groupe de sécurité unique
+   security-groups  |  Répertorier tous les groupes de sécurité
+   create-security-group  |  Créer un groupe de sécurité
+   update-security-group  |  Mettre à jour un groupe de sécurité
+   delete-security-group  |  Supprime un groupe de sécurité
+   bind-security-group  |  Lier un groupe de sécurité à un espace
+   unbind-security-group  |  Annuler la liaison d'un groupe de sécurité depuis un espace
+   bind-staging-security-group  |  Lier un groupe de sécurité à la liste de groupes de sécurité à utiliser pour la constitution d'applications
+   staging-security-groups  |  Répertorier les groupes de sécurité dans l'ensemble de constitution pour les applications
+   unbind-staging-security-group  |  Annuler la liaison d'un groupe de sécurité depuis l'ensemble de groupes de sécurité pour la constitution d'applications
+   bind-running-security-group  |  Lier un groupe de sécurité à la liste de groupes de sécurité à utiliser pour l'exécution d'applications
+   running-security-groups  |  Répertorier les groupes de sécurité dans l'ensemble de groupes de sécurité pour l'exécution d'applications
+   unbind-running-security-group  |  Annuler la liaison d'un groupe de sécurité depuis l'ensemble de groupes de sécurité pour l'exécution d'applications
+
+## <a id='groupes-de-variables-d'environnement-'></a>GROUPES DE VARIABLES D'ENVIRONNEMENT 
+Name   |   Description
+------------|------------
+   running-environment-variable-group  |  Extraire le contenu du groupe de variables d'environnement d'exécution
+   staging-environment-variable-group  |  Extraire le contenu du groupe de variables d'environnement de constitution
+   set-staging-environment-variable-group Transmettre des paramètres en tant que JSON pour créer un groupe de variables d'environnement de constitution  |  set-running-environment-variable-group Transmettre des paramètres en tant que JSON pour créer un groupe de variables d'environnement d'exécution
+
+## <a id='indicateurs-de-fonction-'></a>INDICATEURS DE FONCTION 
+Name   |   Description
+------------|------------
+   feature-flags  |  Extraire la liste des indicateurs de fonction avec le statut de chaque fonction pouvant être activée par un indicateur
+   feature-flag  |  Extraire un indicateur de fonction individuel avec le statut
+   enable-feature-flag  |  Activer l'utilisation d'une fonction pour que les utilisateurs aient accès à la fonction et puissent l'utiliser
+   disable-feature-flag  |  Désactivez l'utilisation d'une fonction pour que les utilisateurs n'y aient pas accès et ne puissent pas l'utiliser.
+
+## <a id='avance'></a>AVANCE
+Name   |   Description
+------------|------------
+   curl  |  Exécute une demande brute ; content-type associé à application/json par défaut
+   config                                 écrire les valeurs par défaut dans la configuration  |  oauth-token                            Extraire et afficher le jeton OAuth pour la session en cours
+   ssh-code  |  Obtenir un mot de passe à utilisation unique pour les clients ssh
+
+## <a id='ajouter/retirer-un-referentiel-de-plug-in-'></a>AJOUTER/RETIRER UN REFERENTIEL DE PLUG-IN 
+Name   |   Description
+------------|------------
+   add-plugin-repo  |  Ajouter un nouveau référentiel de plug-in
+   remove-plugin-repo  |  Retirer un référentiel de plug-in
+   list-plugin-repos  |  répertorier l'intégralité du référentiel de plug-in ajouté
+   repo-plugins  |  Répertorier tous les plug-in disponibles dans tous les référentiels ajoutés
+
+## <a id='ajouter/retirer-un-plug-in-'></a>AJOUTER/RETIRER UN PLUG-IN 
+Name   |   Description
+------------|------------
+   plugins  |  répertorier toutes les commandes de plug-in disponibles
+   install-plugin  |  Installer le plug-in défini dans l'argument de commande
+   uninstall-plugin  |  Désinstaller le plug-in défini dans l'argument de commande
+
+## <a id='commandes-de-plug-in-installees-'></a>COMMANDES DE PLUG-IN INSTALLEES 
+
+## <a id='variables-d'environnement-'></a>VARIABLES D'ENVIRONNEMENT 
+Name   |   Description
+------------|------------
+   CF\_COLOR=false  |  Ne pas mettre la sortie en couleur
+   CF\_HOME=path/to/dir/  |  Substituer le chemin d'accès au répertoire de configuration par défaut
+   CF\_PLUGIN\_HOME=path/to/dir/  |  Substituer le chemin d'accès au répertoire de configuration de plug-in par défaut
+   CF\_STAGING\_TIMEOUT=15  |  Temps d'attente maximal pour la constitution du pack de construction, en minutes
+   CF\_STARTUP\_TIMEOUT=5  |  Temps d'attente maximal pour le démarrage de l'instance d'application, en minutes
+   CF\_TRACE=true  |  Afficher tous les diagnostics de demande d'API dans stdout
+   CF\_TRACE=path/to/trace.log  |  Ajouter les diagnostics de demande d'API à un fichier journal
+   HTTP\_PROXY=proxy.example.com:8080  |  Activer la mise en proxy HTTP pour les demandes d'API
+
+## <a id='options-globales-'></a>OPTIONS GLOBALES 
+Name   |   Description
+------------|------------
+   --version, -v  |  Afficher la version
+   --build, -b  |  Afficher la version de Go avec laquelle l'interface de ligne de commande a été générée
+   --help, -h  |  Afficher l'aide
+

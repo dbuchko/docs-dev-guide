@@ -1,0 +1,185 @@
+---
+title: CF CLI Japanese
+---
+
+## <a id='名前'></a>名前
+   cf - Cloud Foundry と対話するためのコマンド・ライン・ツール
+
+## <a id='使用法'></a>使用法
+   [環境変数] cf [グローバル・オプション] コマンド [引数...] [コマンド・オプション]
+
+## <a id='バージョン'></a>バージョン
+   6.15.0+fa1bfe2-2016-01-13
+
+## <a id='開始'></a>開始
+Name   |   Description
+------------|------------
+   help                                   ヘルプを表示します  |  login                                  ユーザーをログインします
+   logout                                 ユーザーをログアウトします  |  passwd                                 ユーザー・パスワードを変更します
+   target                                 ターゲットにされた組織またはスペースを設定または表示します  |  api                                    ターゲットの API URL を設定または表示します
+   auth                                   非対話式にユーザーを認証します
+
+## <a id='アプリ'></a>アプリ
+Name   |   Description
+------------|------------
+   apps                                   ターゲット・スペース内のすべてのアプリをリストします  |  app                                    アプリの正常性と状況を表示します
+   push                                   新しいアプリ、または既存のアプリに対する同期変更をプッシュします  |  scale                                  特定のアプリについてインスタンス・カウント、ディスク・スペース制限、およびメモリー制限を変更または表示します
+   delete                                 アプリを削除します  |  rename                                 アプリを名前変更します
+   start                                  アプリを開始します  |  stop                                   アプリを停止します
+   restart                                アプリを再始動します  |  restage                                アプリを再ステージングします
+   restart-app-instance                   この実行アプリケーション・インスタンスを指定された索引で終了し、同じ索引でそのアプリケーションの新しいインスタンスをインスタンス化します  |  events                                 最近のアプリ・イベントを表示します
+   files                                  ディレクトリー内のファイルのリストまたは特定のファイルの内容を出力します  |  logs                                   アプリの最近のログを追尾または表示します
+   env                                    アプリの環境変数をすべて表示します  |  set-env                                アプリの環境変数を設定します
+   unset-env                              環境変数を削除します  |  stacks                                 すべてのスタックをリストします (スタックはオペレーティング・システムを含む事前ビルドされたファイル・システムであり、このファイル・システムはアプリを実行できます)
+   stack                                  スタックの情報を表示します (スタックはオペレーティング・システムを含む事前ビルドされたファイル・システムであり、このファイル・システムはアプリを実行できます)  |  copy-source                            あるアプリケーションから他のアプリケーションにアプリ・ソース・コードをコピーします。オーバーライドされない限り、copy-source コマンドはそのアプリケーションを再始動します。
+   create-app-manifest                    正常にプッシュされたアプリのアプリ・マニフェストを作成します。  |  get-health-check                       アプリの health\_check\_type 値を取得します
+   set-health-check  |  health\_check\_type フラグを 'port' または 'none' のいずれかに設定します
+   enable-ssh                             このアプリケーションに対して SSH を有効にします  |  disable-ssh                            このアプリケーションに対して SSH を無効にします
+   ssh-enabled                            アプリケーション・コンテナー・インスタンスで SSH に有効になっているかどうかを報告します  |  ssh                                    SSH 経由でアプリケーション・コンテナー・インスタンスに接続します
+
+## <a id='サービス'></a>サービス
+Name   |   Description
+------------|------------
+   marketplace                            このマーケットプレイス内の使用可能なオファリングをリストします  |  services                               ターゲット・スペース内のすべてのサービス・インスタンスをリストします
+   service                                サービス・インスタンスの情報を表示します  |  create-service                         サービス・インスタンスを作成します
+   update-service                         サービス・インスタンスを更新します  |  delete-service                         サービス・インスタンスを削除します
+   rename-service                         サービス・インスタンスを名前変更します  |  create-service-key                     サービス・インスタンスのキーを作成します
+   service-keys                           サービス・インスタンスのキーをリストします  |  service-key                            サービス・キーの情報を表示します
+   delete-service-key                     サービス・キーを削除します  |  bind-service                           サービス・インスタンスをアプリにバインドします
+   unbind-service                         アプリからサービス・インスタンスをアンバインドします  |  create-user-provided-service           ユーザー提供のサービス・インスタンスを cf アプリが使用できるようにします
+   update-user-provided-service           ユーザー提供サービス・インスタンスの名前/値ペアを更新します
+
+## <a id='組織'></a>組織
+Name   |   Description
+------------|------------
+   orgs                                   すべての組織をリストします  |  org                                    組織の情報を表示します
+   create-org                             組織を作成します  |  delete-org                             組織を削除します
+   rename-org                             組織を名前変更します
+
+## <a id='スペース'></a>スペース
+Name   |   Description
+------------|------------
+   spaces  |  1 つの組織内のすべてのスペースをリストします
+   space                                  スペースの情報を表示します  |  create-space                           スペースを作成します
+   delete-space                           スペースを削除します  |  rename-space                           スペースを名前変更します
+   allow-space-ssh                        このスペースに対する SSH アクセスを許可します  |  disallow-space-ssh                     このスペースに対する SSH アクセスを不許可にします
+   space-ssh-allowed                      スペース内で SSH が許可されているかどうかを報告します
+
+## <a id='ドメイン'></a>ドメイン
+Name   |   Description
+------------|------------
+   domains                                ターゲット組織内のドメインをリストします  |  create-domain                          後で使用するために組織内にドメインを作成します
+   delete-domain                          ドメインを削除します  |  create-shared-domain                   すべての組織 (管理者のみ) が使用できるドメインを作成します
+   delete-shared-domain                   共有ドメインを削除します
+
+## <a id='経路'></a>経路
+Name   |   Description
+------------|------------
+   routes                                 現行スペースまたは現行組織内のすべての経路をリストします  |  create-route                           後で使用するためにスペース内に URL 経路を作成します
+   check-route                            経路が現在存在しているかどうかを調べる簡単なチェックを行います。  |  map-route                              アプリに URL 経路を追加します
+   unmap-route                            アプリから URL 経路を削除します  |  delete-route                           経路を削除します
+   delete-orphaned-routes                 すべての孤立した経路 (例: アプリにマップされていない経路) を削除します
+
+## <a id='ルーター・グループ'></a>ルーター・グループ
+   router-groups                          ルーター・グループをリストします
+
+## <a id='ビルドパック'></a>ビルドパック
+Name   |   Description
+------------|------------
+   buildpacks                             すべてのビルドパックをリストします  |  create-buildpack                       ビルドパックを作成します
+   update-buildpack                       ビルドパックを更新します  |  rename-buildpack                       ビルドパックを名前変更します
+   delete-buildpack                       ビルドパックを削除します
+
+## <a id='ユーザー管理者'></a>ユーザー管理者
+Name   |   Description
+------------|------------
+   create-user                            新しいユーザーを作成します  |  delete-user                            ユーザーを削除します
+   org-users                              組織のユーザーを役割別に表示します  |  set-org-role                           ユーザーに組織の役割を割り当てます
+   unset-org-role                         ユーザーから組織の役割を削除します  |  space-users                            スペースのユーザーを役割別に表示します
+   set-space-role                         ユーザーにスペースの役割を割り当てます  |  unset-space-role                       ユーザーからスペースの役割を削除します
+
+## <a id='組織管理者'></a>組織管理者
+Name   |   Description
+------------|------------
+   quotas                                 使用可能な使用量の割り当て量をリストします  |  quota                                  割り当て量の情報を表示します
+   set-quota                              組織に割り当てを設定します  |  create-quota                           新しいリソース割り当て量を定義します
+   delete-quota                           割り当て量を削除します  |  update-quota                           既存のリソース割り当て量を更新します
+   share-private-domain                   プライベート・ドメインを組織と共有します  |  unshare-private-domain                 プライベート・ドメインを組織と非共有にします
+
+## <a id='スペース管理者'></a>スペース管理者
+Name   |   Description
+------------|------------
+   space-quotas                           使用可能なスペース・リソース割り当て量をリストします  |  space-quota                            スペース割り当て量の情報を表示します
+   create-space-quota                     新しいスペース・リソース割り当て量を定義します  |  update-space-quota                     既存のスペース割り当て量を更新します
+   delete-space-quota                     スペース割り当て量定義を削除し、すべてのスペースからスペース割り当て量を割り当て解除します  |  set-space-quota                        スペースにスペース割り当て量定義を指定します
+   unset-space-quota                      スペースから割り当て量を割り当て解除します
+
+## <a id='サービス管理者'></a>サービス管理者
+Name   |   Description
+------------|------------
+   service-auth-tokens                    サービス認証トークンをリストします  |  create-service-auth-token              サービス認証トークンを作成します
+   update-service-auth-token              サービス認証トークンを更新します  |  delete-service-auth-token              サービス認証トークンを削除します
+   service-brokers                        サービス・ブローカーをリストします  |  create-service-broker                  サービス・ブローカーを作成します
+   update-service-broker                  サービス・ブローカーを更新します  |  delete-service-broker                  サービス・ブローカーを削除します
+   rename-service-broker                  サービス・ブローカーを名前変更します  |  migrate-service-instances              あるサービスから他のサービスにサービス・インスタンスをマイグレーションします
+   purge-service-offering                 サービス・ブローカーに要請することなく Cloud Foundry データベースからサービスと子オブジェクトを再帰的に削除します  |  purge-service-instance                 サービス・ブローカーに要請することなく Cloud Foundry データベースからサービス・インスタンスと子オブジェクトを再帰的に削除します
+   service-access                         サービス・アクセス設定をリストします  |  enable-service-access                  1 つまたはすべての組織に対してサービスまたはサービス・プランへのアクセスを有効にします
+   disable-service-access  |  1 つまたはすべての組織に対してサービスまたはサービス・プランへのアクセスを無効にします
+
+## <a id='セキュリティー・グループ'></a>セキュリティー・グループ
+Name   |   Description
+------------|------------
+   security-group                         単一のセキュリティー・グループを表示します  |  security-groups                        すべてのセキュリティー・グループをリストします
+   create-security-group                  セキュリティー・グループを作成します  |  update-security-group                  セキュリティーを更新します
+   delete-security-group                  セキュリティー・グループを削除します  |  bind-security-group                    セキュリティー・グループをスペースにバインドします
+   unbind-security-group                  スペースからセキュリティー・グループをアンバインドします  |  bind-staging-security-group            ステージング・アプリケーションに対して使用されるセキュリティー・グループのリストにセキュリティー・グループをバインドします
+   staging-security-groups                ステージング中のアプリケーションのセット内にあるセキュリティー・グループをリストします  |  unbind-staging-security-group          ステージング・アプリケーションのセキュリティー・グループのセットからセキュリティー・グループをアンバインドします
+   bind-running-security-group            実行アプリケーションに対して使用されるセキュリティー・グループのリストにセキュリティー・グループをバインドします  |  running-security-groups                実行中のアプリケーションに対するセキュリティー・グループのセット内にあるセキュリティー・グループをリストします
+   unbind-running-security-group          実行アプリケーションのセキュリティー・グループのセットからセキュリティー・グループをアンバインドします
+
+## <a id='環境変数グループ'></a>環境変数グループ
+Name   |   Description
+------------|------------
+   running-environment-variable-group     実行環境変数グループの内容を取得します  |  staging-environment-variable-group     ステージング環境変数グループの内容を取得します
+   set-staging-environment-variable-group パラメーターを JSON として渡してステージング環境変数グループを作成します  |  set-running-environment-variable-group パラメーターを JSON として渡して実行環境変数グループを作成します
+
+## <a id='フィーチャー・フラグ'></a>フィーチャー・フラグ
+Name   |   Description
+------------|------------
+   feature-flags                          状況がそれぞれ flag-able フィーチャーであるフィーチャー・フラグのリストを取得します  |  feature-flag                           次の状況を持つ個別のフィーチャー・フラグを取得します:
+   enable-feature-flag                    フィーチャーの使用を有効にすると、ユーザーはそのフィーチャーにアクセスしたり使用したりできるようになります  |  disable-feature-flag                   フィーチャーの使用を無効にすると、ユーザーはそのフィーチャーにアクセスしたり使用したりできるようになります
+
+## <a id='詳細'></a>詳細
+Name   |   Description
+------------|------------
+   curl                                   ロー要求を実行します、コンテンツ・タイプはデフォルトによって application/json に設定されます  |  config                                 デフォルト値を構成に書き込みます
+   oauth-token                            現行セッションの OAuth トークンを取得して表示します  |  ssh-code                               SSH クライアント用のワンタイム・パスワードを取得します
+
+## <a id='プラグイン・リポジトリーの追加/削除'></a>プラグイン・リポジトリーの追加/削除
+Name   |   Description
+------------|------------
+   add-plugin-repo                        新しいプラグイン・リポジトリーを追加します  |  remove-plugin-repo                     プラグイン・リポジトリーを削除します
+   list-plugin-repos                      追加されたプラグイン・リポジトリーをすべてリストします  |  repo-plugins                           追加されたすべてのリポジトリー内にある使用可能なすべてのプラグインをリストします
+
+## <a id='プラグインの追加/削除'></a>プラグインの追加/削除
+Name   |   Description
+------------|------------
+   plugins                                使用可能なプラグイン・コマンドをすべてリストします  |  install-plugin                         コマンド引数で定義されたプラグインをインストールします
+   uninstall-plugin                       コマンド引数で定義されたプラグインをアンインストールします
+
+## <a id='インストール済みプラグイン・コマンド'></a>インストール済みプラグイン・コマンド
+
+## <a id='環境変数'></a>環境変数
+Name   |   Description
+------------|------------
+   CF\_COLOR=false                     出力に色を付けません  |  CF\_HOME=path/to/dir/               デフォルトの構成ディレクトリーへのパスをオーバーライドします
+   CF\_PLUGIN\_HOME=path/to/dir/        デフォルトのプラグイン構成ディレクトリーへのパスをオーバーライドします  |  CF\_STAGING\_TIMEOUT=15              ビルドパック・ステージングの最大待ち時間 (分)
+   CF\_STARTUP\_TIMEOUT=5               アプリ・インスタンス起動の最大待ち時間 (分)  |  CF\_TRACE=true                      API 要求診断を stdout に出力します
+   CF\_TRACE=path/to/trace.log  |  API 要求診断をログ・ファイルに付加します
+   HTTP\_PROXY=proxy.example.com:8080  |  API 要求に対して HTTP プロキシングを有効にします
+
+## <a id='グローバル・オプション'></a>グローバル・オプション
+   --version, -v                      バージョンを出力します
+   --build, -b  |  CLI の作成に使用された Go のバージョンを出力します
+   --help, -h                         ヘルプを表示します
+

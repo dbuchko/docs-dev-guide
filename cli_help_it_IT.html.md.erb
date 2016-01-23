@@ -1,0 +1,259 @@
+---
+title: CF CLI Italian
+---
+
+## <a id='nome'></a>NOME
+   cf - Uno strumento riga di comando per interagire con Cloud Foundry
+
+## <a id='utilizzo'></a>UTILIZZO
+   [variabili di ambiente] cf [opzioni globali] comando [argomenti...] [opzioni comando]
+
+## <a id='versione'></a>VERSIONE
+   6.15.0+fa1bfe2-2016-01-13
+
+## <a id='introduzione'></a>INTRODUZIONE
+Name   |   Description
+------------|------------
+   help  |  Mostra Guida
+   login  |  Collega utente
+   logout  |  Scollega utente
+   passwd  |  Modifica password utente
+   target  |  Imposta o visualizza organizzazione o spazio di destinazione
+   api  |  Imposta o visualizza URL API di destinazione
+   auth  |  Autentica utente in modalità non interattiva
+
+## <a id='applicazioni'></a>APPLICAZIONI
+Name   |   Description
+------------|------------
+   apps  |  Elenca tutte le applicazioni nello spazio di destinazione
+   app  |  Visualizza integrità e stato dell'applicazione
+   push  |  Distribuisci una nuova applicazione o sincronizza le modifiche con un'applicazione esistente
+   scale  |  Modifica o visualizza il numero di istanze, il limite di spazio su disco e il limite di memoria per un'applicazione
+   delete  |  Elimina un'applicazione
+   rename  |  Ridenomiona un'applicazione
+   start  |  Avvia un'applicazione
+   stop  |  Arresta un'applicazione
+   restart  |  Riavvia un'applicazione
+   restage  |  Riprepara un'applicazione
+   restart-app-instance  |  Termina l'istanza dell'applicazione in esecuzione in corrispondenza dell'indice specificato e crea una nuova istanza dell'applicazione con lo stesso indice
+   events  |  Visualizza eventi applicazione recenti
+   files  |  Stampa un elenco di file in una directory o il contenuto di uno specifico file
+   logs  |  Accoda o mostra i log recenti per un'applicazione
+   env  |  Mostra tutte le variabili di ambiente per un'applicazione
+   set-env  |  Imposta una variabile di ambiente per un'applicazione
+   unset-env  |  Rimuovi una variabile di ambiente
+   stacks  |  Elenca tutti gli stack (uno stack è un file system precostruito, incluso un sistema operativo, che può eseguire le applicazioni)
+   stack  |  Visualizza informazioni per uno stack (uno stack è un file system precostruito, incluso un sistema operativo, che può eseguire le applicazioni)
+   copy-source  |  Crea una copia del codice sorgente dell'applicazione da un'applicazione all'altra. A meno che non venga sovrascritto, il comando copy-source riavvierà l'applicazione.
+   create-app-manifest  |  Crea un manifest di applicazione per un'applicazione distribuita correttamente.
+   get-health-check  |  ottieni il valore health\_check\_type di un'applicazione
+   set-health-check  |  imposta l'indicatore health\_check\_type su 'port' o 'none'
+   enable-ssh  |  abilita ssh per l'applicazione
+   disable-ssh  |  disabilita ssh per l'applicazione
+   ssh-enabled  |  Indica se SSH è abilitato su un'istanza del contenitore applicazioni
+   ssh  |  SSH per un'istanza del contenitore applicazioni
+
+## <a id='servizi'></a>SERVIZI
+Name   |   Description
+------------|------------
+   marketplace  |  Elenca le offerte disponibili nel marketplace
+   services  |  Elenca tutte le istanze del servizio nello spazio di destinazione
+   service  |  Visualizza informazioni istanza del servizio
+   create-service  |  Crea un'istanza del servizio
+   update-service  |  Aggiorna un'istanza del servizio
+   delete-service  |  Elimina un'istanza del servizio
+   rename-service  |  Ridenomiona un'istanza del servizio
+   create-service-key  |  Crea chiave per un'istanza del servizio
+   service-keys  |  Elenca le chiavi per un'istanza del servizio
+   service-key  |  Visualizza informazioni chiave di servizio
+   delete-service-key  |  Elimina una chiave del servizio
+   bind-service  |  Esegui il bind di un'istanza del servizio a un'applicazione
+   unbind-service  |  Annulla il bind di un'istanza del servizio da un'applicazione
+   create-user-provided-service  |  Rendi disponibile l'istanza del servizio fornito dall'utente alle applicazioni cf
+   update-user-provided-service  |  Aggiorna le coppie nome-valore dell'istanza del servizio fornito dall'utente
+
+## <a id='organizzazioni'></a>ORGANIZZAZIONI
+Name   |   Description
+------------|------------
+   orgs  |  Elenca tutte le organizzazioni
+   org  |  Visualizza informazioni organizzazione
+   create-org  |  Crea un'organizzazione
+   delete-org  |  Elimina un'organizzazione
+   rename-org  |  Ridenomiona un'organizzazione
+
+## <a id='spazi'></a>SPAZI
+Name   |   Description
+------------|------------
+   spaces  |  Elenca tutti gli spazi in un'organizzazione
+   space  |  Visualizza informazioni spazio
+   create-space  |  Crea uno spazio
+   delete-space  |  Elimina uno spazio
+   rename-space  |  Ridenomiona uno spazio
+   allow-space-ssh  |  Consenti accesso SSH per lo spazio
+   disallow-space-ssh  |  Non consentire accesso SSH per lo spazio
+   space-ssh-allowed  |  Indica se SSH è consentito in uno spazio
+
+## <a id='domini'></a>DOMINI
+Name   |   Description
+------------|------------
+   domains  |  Elenca i domini nell'organizzazione di destinazione
+   create-domain  |  Crea un dominio in un organizzazione da utilizzare successivamente
+   delete-domain  |  Elimina un dominio
+   create-shared-domain  |  Crea un dominio che può essere utilizzato da tutte le organizzazioni (solo amministratore)
+   delete-shared-domain  |  Elimina un dominio condiviso
+
+## <a id='rotte'></a>ROTTE
+Name   |   Description
+------------|------------
+   routes  |  Elenca tutte le rotte nello spazio o nell'organizzazione corrente
+   create-route  |  Crea una rotta URL in uno spazio da utilizzare successivamente
+   check-route  |  Effettua un semplice controllo per determinare la presenza di una rotta.
+   map-route  |  Aggiungi una rotta URL a un'applicazione
+   unmap-route  |  Rimuovi una rotta URL da un'applicazione
+   delete-route  |  Elimina una rotta
+   delete-orphaned-routes  |  Elimina tutte le rotte orfane (ad esempio: quelle non associate a un'applicazione)
+
+## <a id='gruppi-di-router'></a>GRUPPI DI ROUTER
+Name   |   Description
+------------|------------
+   router-groups  |  Elenca gruppi di router
+
+## <a id='pacchetti-di-build'></a>PACCHETTI DI BUILD
+Name   |   Description
+------------|------------
+   buildpacks  |  Elenca tutti i pacchetti di build
+   create-buildpack  |  Crea un pacchetto di build
+   update-buildpack  |  Aggiorna un pacchetto di build
+   rename-buildpack  |  Ridenomiona un pacchetto di build
+   delete-buildpack  |  Elimina un pacchetto di build
+
+## <a id='amministrazione-utenti'></a>AMMINISTRAZIONE UTENTI
+Name   |   Description
+------------|------------
+   create-user  |  Crea un nuovo utente
+   delete-user  |  Elimina un utente
+   org-users  |  Visualizza utenti dell'organizzazione in base al ruolo
+   set-org-role  |  Assegna un ruolo organizzazione a un utente
+   unset-org-role  |  Rimuovi un ruolo organizzazione da un utente
+   space-users  |  Visualizza utenti dello spazio in base al ruolo
+   set-space-role  |  Assegna un ruolo spazio a un utente
+   unset-space-role  |  Rimuovi un ruolo spazio da un utente
+
+## <a id='amministratore-organizzazione'></a>AMMINISTRATORE ORGANIZZAZIONE
+Name   |   Description
+------------|------------
+   quotas  |  Elenca le quote di utilizzo disponibili
+   quota  |  Visualizza informazioni quota
+   set-quota  |  Assegna una quota a un'organizzazione
+   create-quota  |  Definisci una nuova quota di risorse
+   delete-quota  |  Elimina una quota
+   update-quota  |  Aggiorna una quota di risorse esistente
+   share-private-domain  |  Condividi un dominio privato con un'organizzazione
+   unshare-private-domain  |  Annulla condivisione di un dominio privato con un'organizzazione
+
+## <a id='amministratore-spazio'></a>AMMINISTRATORE SPAZIO
+Name   |   Description
+------------|------------
+   space-quotas  |  Elenca le quote di risorse dello spazio disponibili
+   space-quota  |  Visualizza informazioni quota spazio
+   create-space-quota  |  Definisci una nuova quota di risorse dello spazio
+   update-space-quota  |  aggiorna una quota di spazio esistente
+   delete-space-quota  |  Elimina una definizione di quota dello spazio e annulla l'assegnazione della quota di spazio da tutti gli spazi
+   set-space-quota  |  Assegna una definizione di quota dello spazio a uno spazio
+   unset-space-quota  |  Annulla assegnazione di una quota da uno spazio
+
+## <a id='amministratore-servizio'></a>AMMINISTRATORE SERVIZIO
+Name   |   Description
+------------|------------
+   service-auth-tokens  |  Elenca i token di autenticazione del servizio
+   create-service-auth-token  |  Crea un token di autenticazione del servizio
+   update-service-auth-token  |  Aggiorna un token di autenticazione del servizio
+   delete-service-auth-token  |  Elimina un token di autenticazione del servizio
+   service-brokers  |  Elenca i broker dei servizi
+   create-service-broker  |  Crea un broker dei servizi
+   update-service-broker  |  Aggiorna un broker dei servizi
+   delete-service-broker  |  Elimina un broker dei servizi
+   rename-service-broker  |  Ridenomiona un broker dei servizi
+   migrate-service-instances  |  Migra le istanze del servizio da un piano di servizio a un altro
+   purge-service-offering  |  Rimuovi un servizio e gli oggetti figlio dal database Cloud Foundry in modo ricorsivo senza effettuare richieste a un broker dei servizi
+   purge-service-instance  |  Rimuovi un'istanza del servizio e gli oggetti figlio dal database Cloud Foundry in modo ricorsivo senza effettuare richieste a un broker dei servizi
+   service-access  |  Elenca le impostazioni di accesso al servizio
+   enable-service-access  |  Abilita l'accesso a un servizio o piano di servizio per una o tutte le organizzazioni
+   disable-service-access  |  Disabilita l'accesso a un servizio o piano di servizio per una o tutte le organizzazioni
+
+## <a id='gruppo-di-sicurezza'></a>GRUPPO DI SICUREZZA
+Name   |   Description
+------------|------------
+   security-group  |  Mostra un singolo gruppo di sicurezza
+   security-groups  |  Elenca tutti i gruppi di sicurezza
+   create-security-group  |  Crea un gruppo di sicurezza
+   update-security-group  |  Aggiorna un gruppo di sicurezza
+   delete-security-group  |  Elimina un gruppo di sicurezza
+   bind-security-group  |  Esegui il bind di un gruppo di sicurezza a uno spazio
+   unbind-security-group  |  Annulla il bind di un gruppo di sicurezza da uno spazio
+   bind-staging-security-group  |  Esegui il bind di un gruppo di sicurezza all'elenco di gruppi di sicurezza da utilizzare per le applicazioni in fase di preparazione
+   staging-security-groups  |  Elenca i gruppi di sicurezza nella serie in fase di preparazione per le applicazioni
+   unbind-staging-security-group  |  Annulla il bind di un gruppo di sicurezza dalla serie di gruppi di sicurezza per le applicazioni in fase di preparazione
+   bind-running-security-group  |  Esegui il bind di un gruppo di sicurezza all'elenco di gruppi di sicurezza da utilizzare per le applicazioni in esecuzione
+   running-security-groups  |  Elenca i gruppi di sicurezza nella serie di gruppi di sicurezza per le applicazioni in esecuzione
+   unbind-running-security-group  |  Annulla il bind di un gruppo di sicurezza dalla serie di gruppi di sicurezza per le applicazioni in esecuzione
+
+## <a id='gruppi-di-variabili-di-ambiente'></a>GRUPPI DI VARIABILI DI AMBIENTE
+Name   |   Description
+------------|------------
+   running-environment-variable-group  |  Richiama il contenuto del gruppo di variabili di ambiente in esecuzione
+   staging-environment-variable-group  |  Richiama il contenuto del gruppo di variabili di ambiente in fase di preparazione
+   set-staging-environment-variable-group Trasmetti i parametri come JSON per creare un gruppo di variabili di ambiente in fase di preparazione  |  set-running-environment-variable-group Trasmetti i parametri come JSON per creare un gruppo di variabili di ambiente in esecuzione
+
+## <a id='indicatori-funzione'></a>INDICATORI FUNZIONE
+Name   |   Description
+------------|------------
+   feature-flags  |  Richiama elenco di indicatori di funzione con lo stato di ciascuna funzione contrassegnata
+   feature-flag  |  Richiama un singolo indicatore di funzione con stato
+   enable-feature-flag  |  Abilita l'uso di una funzione in modo che gli utenti possano accedere e utilizzare la funzione.
+   disable-feature-flag  |  Disabilita l'uso di una funzione in modo che gli utenti possano accedere e utilizzare la funzione.
+
+## <a id='avanzate'></a>AVANZATE
+Name   |   Description
+------------|------------
+   curl  |  Esegue una richiesta base, il content-type viene impostato su application/json per impostazione predefinita
+   config  |  scrivi valori predefiniti nella configurazione
+   oauth-token  |  Richiama e visualizza il token OAuth per la sessione corrente
+   ssh-code  |  Ottieni una password monouso per i client ssh
+
+## <a id='aggiungi/rimuovi-repository-plugin'></a>AGGIUNGI/RIMUOVI REPOSITORY PLUGIN
+Name   |   Description
+------------|------------
+   add-plugin-repo  |  Aggiungi un nuovo repository di plug-in
+   remove-plugin-repo  |  Rimuovi un repository di plug-in
+   list-plugin-repos  |  elenca tutti i repository di plug-in aggiunti
+   repo-plugins  |  Elenca tutti i plug-in disponibili in tutti i repository aggiunti
+
+## <a id='aggiungi/rimuovi-plugin'></a>AGGIUNGI/RIMUOVI PLUGIN
+Name   |   Description
+------------|------------
+   plugins  |  elenca tutti i comandi di plug-in disponibili
+   install-plugin  |  Installa il plug-in definito nell'argomento del comando
+   uninstall-plugin  |  Disinstalla il plug-in definito nell'argomento del comando
+
+## <a id='comandi-plugin-installato'></a>COMANDI PLUGIN INSTALLATO
+
+## <a id='variabili-di-ambiente'></a>VARIABILI DI AMBIENTE
+Name   |   Description
+------------|------------
+   CF\_COLOR=false  |  Non colorare l'output
+   CF\_HOME=path/to/dir/  |  Sovrascrivi percorso della directory di configurazione predefinita
+   CF\_PLUGIN\_HOME=path/to/dir/  |  Sovrascrivi percorso della directory di configurazione del plug-in predefinita
+   CF\_STAGING\_TIMEOUT=15  |  Tempo massimo di attesa per la preparazione del pacchetto di build, in minuti
+   CF\_STARTUP\_TIMEOUT=5  |  Tempo massimo di attesa per l'avvio dell'istanza dell'applicazione, in minuti
+   CF\_TRACE=true  |  Stampa diagnostica della richiesta API in stdout
+   CF\_TRACE=path/to/trace.log  |  Aggiungi diagnostica della richiesta API in un file di log
+   HTTP\_PROXY=proxy.example.com:8080  |  Abilita il proxy HTTP per le richieste API
+
+## <a id='opzioni-globali'></a>OPZIONI GLOBALI
+Name   |   Description
+------------|------------
+   --version, -v  |  Stampa la versione
+   --build, -b  |  Stampa la versione di Go su cui è stata creata la CLI
+   --help, -h  |  Mostra Guida
+

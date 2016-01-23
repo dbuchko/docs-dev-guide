@@ -1,0 +1,259 @@
+---
+title: CF CLI German
+---
+
+## <a id='name'></a>NAME
+   cf - Ein Befehlszeilentool zur Interaktion mit Cloud Foundry
+
+## <a id='verwendung'></a>VERWENDUNG
+   [Umgebungsvariablen] cf [globale Optionen] Befehl [Argumente...] [Befehlsoptionen]
+
+## <a id='version'></a>VERSION
+   6.15.0+fa1bfe2-2016-01-13
+
+## <a id='erste-schritte-'></a>ERSTE SCHRITTE 
+Name   |   Description
+------------|------------
+   help  |  Hilfe Anzeigen
+   login  |  Melden Sie den Benutzer an.
+   logout  |  Melden Sie den Benutzer ab.
+   passwd  |  Benutzerkennwort ändern
+   target  |  Zielorganisation oder Zielbereich festlegen oder anzeigen
+   api  |  Ziel-API-URL festlegen oder anzeigen
+   auth  |  Benutzer nicht interaktiv authentifizierten
+
+## <a id='apps'></a>APPS
+Name   |   Description
+------------|------------
+   apps  |  Alle Apps im Zielbereich auflisten
+   app  |  Zustand und Status für App anzeigen
+   push  |  Neue App oder Synchronisationsänderungen mit einer Push-Operation an eine vorhandene App übertragen
+   scale  |  Den Instanzzähler, den Grenzwert für den Plattenspeicher und die Speicherbegrenzung für eine App ändern oder anzeigen.
+   delete  |  Eine App löschen
+   rename  |  Eine App umbenennen
+   start  |  App starten
+   stop  |  Eine App stoppen
+   restart  |  Eine App erneut starten
+   restage  |  Eine App erneut aktivieren
+   restart-app-instance  |  Die aktive Anwendungsinstanz beim gegebenen Index beenden und eine neue Instanz der Anwendung mit demselben Index instanziieren
+   events  |  Letzte App-Ereignisse anzeigen
+   files  |  Eine Liste mit Dateien in einem Verzeichnis oder den Inhalt einer bestimmten Datei drucken
+   logs  |  Tailing-Protokoll (Liveanzeige der aktuellen letzten Protokollzeilen) oder die letzten Protokolle für eine App anzeigen
+   env  |  Alle Umgebungsvariablen für eine App anzeigen
+   set-env  |  Eine Umgebungsvariable für eine App festlegen
+   unset-env  |  Eine Umgebungsvariable entfernen
+   stacks  |  Alle Stacks auflisten (ein Stack ist ein vordefiniertes Dateisystem einschließlich Betriebssystem, das Apps ausführen kann)
+   stack  |  Informationen für einen Stack anzeigen (ein Stack ist ein vordefiniertes Dateisystem einschließlich Betriebssystem, das Apps ausführen kann)
+   copy-source  |  Kopie des Quellcodes der App von einer Anwendung für eine andere erstellen. Der Befehl copy-source startet die Anwendung erneut, wenn er nicht überschrieben wurde.
+   create-app-manifest  |  App-Manifest für eine App erstellen, die erfolgreich mit einer Push-Operation übertragen wurde.
+   get-health-check  |  Wert für health\_check\_type einer App abrufen
+   set-health-check  |  Für Flag health\_check\_type entweder 'port' oder 'none' festlegen
+   enable-ssh  |  SSH für Anwendung aktivieren
+   disable-ssh  |  SSH für Anwendung inaktivieren
+   ssh-enabled  |  Berichtet, ob SSH für eine Anwendungscontainerinstanz aktiviert ist
+   ssh  |  SSH zu einer Anwendungscontainerinstanz
+
+## <a id='services'></a>SERVICES
+Name   |   Description
+------------|------------
+   marketplace  |  Verfügbare Angebote auf dem Marktplatz auflisten
+   services  |  Alle Serviceinstanzen im Zielbereich auflisten
+   service  |  Serviceinstanzinfos anzeigen
+   create-service  |  Serviceinstanz erstellen
+   update-service  |  Serviceinstanz aktualisieren
+   delete-service  |  Serviceinstanz löschen
+   rename-service  |  Eine Serviceinstanz umbenennen
+   create-service-key  |  Schlüssel für eine Serviceinstanz erstellen
+   service-keys  |  Schlüssel für eine Serviceinstanz auflisten
+   service-key  |  Serviceschlüsselinfo anzeigen
+   delete-service-key  |  Serviceschlüssel löschen
+   bind-service  |  Eine Serviceinstanz an eine App binden
+   unbind-service  |  Bindung einer Serviceinstanz an eine App aufheben
+   create-user-provided-service  |  Stellen Sie eine vom Benutzer zur Verfügung gestellte Serviceinstanz für cf-Apps zur Verfügung.
+   update-user-provided-service  |  Vom Benutzer zur Verfügung gestellte Name-Wertepaare für Serviceinstanz aktualisieren
+
+## <a id='organisationen'></a>ORGANISATIONEN
+Name   |   Description
+------------|------------
+   orgs  |  Alle Organisationen auflisten
+   org  |  Organisationsinfo anzeigen
+   create-org  |  Organisation erstellen
+   delete-org  |  Eine Organisation löschen
+   rename-org  |  Eine Organisation umbenennen
+
+## <a id='bereiche'></a>BEREICHE
+Name   |   Description
+------------|------------
+   spaces  |  Alle Bereiche in einer Organisation auflisten
+   space  |  Bereichsinfo anzeigen
+   create-space  |  Bereich erstellen
+   delete-space  |  Bereich löschen
+   rename-space  |  Einen Bereich umbenennen
+   allow-space-ssh  |  SSH-Zugriff für den Bereich ermöglichen
+   disallow-space-ssh  |  SSH-Zugriff für diesen Bereich nicht zulassen
+   space-ssh-allowed  |  Berichtet, ob SSH in einem Bereich zulässig ist
+
+## <a id='domÄnen'></a>DOMÄNEN
+Name   |   Description
+------------|------------
+   domains  |  Domänen in der Zielorganisation auflisten.
+   create-domain  |  Domäne in einer Organisation zur späteren Verwendung erstellen
+   delete-domain  |  Domäne löschen
+   create-shared-domain  |  Domäne erstellen, die von allen Organisationen verwendet werden kann (nur Admin)
+   delete-shared-domain  |  Gemeinsam genutzte Domäne löschen
+
+## <a id='routen'></a>ROUTEN
+Name   |   Description
+------------|------------
+   routes  |  Alle Routen im aktuellen Bereich oder in der aktuellen Organisation auflisten
+   create-route  |  URL-Route in einem Bereich zur späteren Verwendung erstellen
+   check-route  |  Führen Sie eine einfache Überprüfung aus, um festzustellen, ob eine Route aktuell vorhanden ist.
+   map-route  |  URL-Route zu einer App hinzufügen
+   unmap-route  |  URL-Route von einer APP entfernen
+   delete-route  |  Route löschen
+   delete-orphaned-routes  |  Alle verwaisten Routen (z.B.:  die keiner Map zugeordnet sind) löschen
+
+## <a id='router-gruppen'></a>ROUTER-GRUPPEN
+Name   |   Description
+------------|------------
+   router-groups  |  Routergruppen auflisten
+
+## <a id='buildpakete'></a>BUILDPAKETE
+Name   |   Description
+------------|------------
+   buildpacks  |  Alle Buildpacks auflisten
+   create-buildpack  |  Buildpack erstellen
+   update-buildpack  |  Buildpack aktualisieren
+   rename-buildpack  |  Ein Buildpack umbenennen
+   delete-buildpack  |  Buildpack löschen
+
+## <a id='benutzer-admin'></a>BENUTZER ADMIN
+Name   |   Description
+------------|------------
+   create-user  |  Neuen Benutzer erstellen
+   delete-user  |  Benutzer löschen
+   org-users  |  Organisationsbenutzer nach Rolle anzeigen
+   set-org-role  |  Ordnet eine Organisationsrolle einem Benutzer zu
+   unset-org-role  |  Eine Organisationsrolle von einem Benutzer entfernen
+   space-users  |  Bereichsbenutzer nach Rolle anzeigen
+   set-space-role  |  Ordnet eine Bereichsrolle einem Benutzer zu
+   unset-space-role  |  Bereichsrolle von einem Benutzer entfernen
+
+## <a id='organisationsadministrator'></a>ORGANISATIONSADMINISTRATOR
+Name   |   Description
+------------|------------
+   quotas  |  Verfügbare Größenbeschränkungen für Verwendung auflisten
+   quota  |  Größenbeschränkungsinfo anzeigen
+   set-quota  |  Ordnet eine Größenbeschränkung einer Organisation zu
+   create-quota  |  Neue Ressourcengrößenbeschränkung definieren
+   delete-quota  |  Größenbeschränkung löschen
+   update-quota  |  Vorhandene Ressourcengrößenbeschränkung aktualisieren
+   share-private-domain  |  Private Domäne mit einer Organisation gemeinsam nutzen
+   unshare-private-domain  |  Gemeinsame Nutzung einer privaten Domäne mit einer Organisation beenden
+
+## <a id='bereichsadmin'></a>BEREICHSADMIN
+Name   |   Description
+------------|------------
+   space-quotas  |  Verfügbare Größenbeschränkungen für Bereichsressourcen auflisten
+   space-quota  |  Bereichsgrößenbeschränkungsinfo anzeigen
+   create-space-quota  |  Neue Bereichsressourcengrößenbeschränkung definieren
+   update-space-quota  |  vorhandene Bereichsgrößenbeschränkung aktualisieren
+   delete-space-quota  |  Eine Bereichsgrößenbeschränkungsdefinition löschen und die Zuordnung der Bereichsgrößenbeschränkung von allen Bereichen aufheben
+   set-space-quota  |  Ordnet eine Bereichgrößenbeschränkungsdefinition einem Bereich zu
+   unset-space-quota  |  Zuordnung der Größenbeschränkung für einen Bereich zurücknehmen
+
+## <a id='service-admin'></a>SERVICE-ADMIN
+Name   |   Description
+------------|------------
+   service-auth-tokens  |  Serviceauthentifizierungstoken auflisten
+   create-service-auth-token  |  Serviceauthentifizierungstoken erstellen
+   update-service-auth-token  |  Serviceauthentifizierungstoken aktualisieren
+   delete-service-auth-token  |  Serviceauthentifizierungstoken löschen
+   service-brokers  |  Service-Broker auflisten
+   create-service-broker  |  Service-Broker erstellen
+   update-service-broker  |  Service-Broker aktualisieren
+   delete-service-broker  |  Service-Broker löschen
+   rename-service-broker  |  Einen Service-Broker umbenennen
+   migrate-service-instances  |  Serviceinstanzen von einem Serviceplan zu einem anderen migrieren
+   purge-service-offering  |  Entfernen Sie einen Service und untergeordnete Objekte rekursiv aus der Cloud Foundry-Datenbank, ohne Anforderungen an den Service-Broker zu stellen.
+   purge-service-instance  |  Entfernen Sie eine Serviceinstanz und untergeordnete Objekte rekursiv aus der Cloud Foundry-Datenbank, ohne Anforderungen an den Service-Broker zu stellen.
+   service-access  |  Einstellungen für Servicezugriff auflisten
+   enable-service-access  |  Zugriff auf einen Service oder Serviceplan für eine oder alle Organisationen aktivieren
+   disable-service-access  |  Zugriff auf einen Service oder einen Serviceplan für eine oder alle Organisationen inaktivieren
+
+## <a id='sicherheitsgruppe'></a>SICHERHEITSGRUPPE
+Name   |   Description
+------------|------------
+   security-group  |  Einzelne Sicherheitsgruppe anzeigen
+   security-groups  |  Alle Sicherheitsgruppen auflisten
+   create-security-group  |  Sicherheitsgruppe erstellen
+   update-security-group  |  Sicherheitsgruppe aktualisieren
+   delete-security-group  |  Sicherheitsgruppe löschen
+   bind-security-group  |  Eine Sicherheitsgruppe an einen Bereich binden
+   unbind-security-group  |  Bindung einer Sicherheitsgruppe an einen Bereich aufheben
+   bind-staging-security-group  |  Eine Sicherheitsgruppe an die Liste der Sicherheitsgruppen binden, um sie für Staginganwendungen zu verwenden
+   staging-security-groups  |  Sicherheitsgruppen in der Stagingmenge für Anwendungen auflisten
+   unbind-staging-security-group  |  Bindung einer Sicherheitsgruppe von der Menge der Sicherheitsgruppen für Staging-Anwendungen aufheben
+   bind-running-security-group  |  Eine Sicherheitsgruppe an die Liste der Sicherheitsgruppen binden, um sie zur Ausführung von Anwendungen zu verwenden
+   running-security-groups  |  Sicherheitsgruppen in der Menge der Sicherheitsgruppen für aktive Anwendungen auflisten
+   unbind-running-security-group  |  Bindung einer Sicherheitsgruppe von der Menge der Sicherheitsgruppen für aktive Anwendungen aufheben
+
+## <a id='umgebungsvariablengruppen'></a>UMGEBUNGSVARIABLENGRUPPEN
+Name   |   Description
+------------|------------
+   running-environment-variable-group  |  Inhalt der aktuellen Umgebungsvariablengruppe abrufen
+   staging-environment-variable-group  |  Inhalt der Staging-Umgebungsvariablengruppe abrufen
+   set-staging-environment-variable-group Parameter als JSON übergeben, um eine Staging-Umgebungsvariablengruppe zu erstellen  |  set-running-environment-variable-group Parameter als JSON übergeben, um eine aktive Umgebungsvariablengruppe zu erstellen
+
+## <a id='feature-flags'></a>FEATURE-FLAGS
+Name   |   Description
+------------|------------
+   feature-flags  |  Liste der Feature-Flags mit dem Status aller flagfähigen Features abrufen
+   feature-flag  |  Individuelles Feature-Flag mit Status abrufen
+   enable-feature-flag  |  Verwendung eines Features aktivieren, damit Benutzer Zugriff auf dieses Feature haben und es verwenden können.
+   disable-feature-flag  |  Verwendung eines Features inaktivieren, so dass Benutzer Zugriff auf dieses Feature haben und es verwenden können.
+
+## <a id='erweitert'></a>ERWEITERT
+Name   |   Description
+------------|------------
+   curl  |  Führt eine unaufbereitete Anforderung aus, Inhaltstyp ist standardmäßig auf Anwendung/JSON festgelegt
+   config  |  Standardwerte in die Konfiguration schreiben
+   oauth-token  |  OAuth-Token für die aktuelle Sitzung abrufen und anzeigen
+   ssh-code  |  Einmalkennwort für SSH-Clients abrufen
+
+## <a id='plug-in-repository-hinzufÜgen/entfernen'></a>PLUG-IN-REPOSITORY HINZUFÜGEN/ENTFERNEN
+Name   |   Description
+------------|------------
+   add-plugin-repo  |  Neues Plug-in-Repository hinzufügen
+   remove-plugin-repo  |  Plug-in-Repository entfernen
+   list-plugin-repos  |  Alle hinzugefügten Plug-in-Repositorys auflisten
+   repo-plugins  |  Alle verfügbaren Plug-ins in allen hinzugefügten Repositorys auflisten
+
+## <a id='plug-in-hinzufÜgen/entfernen'></a>PLUG-IN HINZUFÜGEN/ENTFERNEN
+Name   |   Description
+------------|------------
+   plugins  |  Alle verfügbaren Plug-in-Befehle auflisten
+   install-plugin  |  Im Befehlsargument definiertes Plug-in installieren
+   uninstall-plugin  |  Im Befehlsargument definiertes Plug-in deinstallieren
+
+## <a id='installierte-plug-in-befehle'></a>INSTALLIERTE PLUG-IN-BEFEHLE
+
+## <a id='umgebungsvariablen'></a>UMGEBUNGSVARIABLEN
+Name   |   Description
+------------|------------
+   CF\_COLOR=false  |  Ausgabe nicht farblich kennzeichnen
+   CF\_HOME=path/to/dir/  |  Pfad zum Standardkonfigurationsverzeichnis überschreiben
+   CF\_PLUGIN\_HOME=path/to/dir/  |  Pfad zum Standardkonfigurationsverzeichnis für Plug-in überschreiben
+   CF\_STAGING\_TIMEOUT=15  |  Maximale Wartezeit auf das Staging des Buildpacks in Minuten
+   CF\_STARTUP\_TIMEOUT=5  |  Maximale Wartezeit auf den Start der App-Instanz in Minuten
+   CF\_TRACE=true  |  API-Anforderungsdiagnose in Standardausgabe drucken
+   CF\_TRACE=path/to/trace.log  |  Anhängen des Diagnoseprogramms für API-Anforderungen an eine Protokolldatei
+   HTTP\_PROXY=proxy.example.com:8080  |  HTTP-Proxying für API-Anforderungen
+
+## <a id='globale-optionen'></a>GLOBALE OPTIONEN
+Name   |   Description
+------------|------------
+   --version, -v  |  Die Version ausgeben
+   --build, -b  |  Die Version von Go, auf der die CLI erstellt wurde
+   --help, -h  |  Hilfe Anzeigen
+
